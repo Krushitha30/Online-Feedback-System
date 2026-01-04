@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Feedback</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <center>
+        <h2>Submit Feedback</h2>
+
+        {% if message %}
+        <p style="color:red">{{ message }}</p>
+        {% endif %}
+
+        <form method="POST">
+            <select name="faculty_id" required>
+        {% for f in faculty %}
+            {% if f[0] not in submitted_faculty %}
+                <option value="{{ f[0] }}">
+                    {{ f[1] }} - {{ f[2] }}
+                </option>
+            {% endif %}
+        {% endfor %}
+    </select> {% if faculty|length != submitted_faculty|length %}
+            <input type="number" name="rating" min="1" max="5" required>
+            <textarea name="comments" required></textarea>
+            <button type="submit">Submit Feedback</button> {% else %}
+            <p style="color:green">
+                You have already submitted feedback for all subjects.
+            </p>
+            {% endif %}
+        </form>
+
+        <a href="/logout">Logout</a>
+    </center>
+</body>
+
+</html>
