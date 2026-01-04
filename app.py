@@ -94,7 +94,7 @@ def admin():
     cur = conn.cursor()
 
     cur.execute("""
-    SELECT s.username, f.subject, f.faculty_name, fb.rating, fb.comments
+    SELECT s.username, f.subject, f.faculty_name, fb.rating, fb.comments,fb.subitted_at
     FROM feedback fb
     JOIN student s ON fb.student_id = s.student_id
     JOIN faculty f ON fb.faculty_id = f.faculty_id
@@ -134,4 +134,5 @@ def logout():
 
 
 if __name__ == '__main__':
+
     app.run(debug=True)
