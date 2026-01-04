@@ -29,6 +29,7 @@ CREATE TABLE IF NOT EXISTS feedback (
     faculty_id INTEGER,
     rating INTEGER,
     comments TEXT,
+    submitted_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     UNIQUE(student_id, faculty_id)
 )
 ''')
@@ -55,3 +56,4 @@ cursor.execute("INSERT OR IGNORE INTO faculty VALUES (2, 'OS', 'Ms. Anita')")
 conn.commit()
 conn.close()
 print("Database initialized")
+
