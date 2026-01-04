@@ -16,6 +16,7 @@
                 <th>Faculty</th>
                 <th>Rating</th>
                 <th>Comments</th>
+                <th>Submitted Date and Time</th>
             </tr>
 
             {% for d in data %}
@@ -25,10 +26,12 @@
                 <td>{{ d[2] }}</td>
                 <td>{{ d[3] }}</td>
                 <td>{{ d[4] }}</td>
+                <ts>{{ d[5] }}</ts>
             </tr>
             {% endfor %}
         </table>
     </center>
 </body>
+
 
 </html>
